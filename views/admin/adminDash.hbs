@@ -1,0 +1,333 @@
+<div class="page-content-wrapper ">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group float-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li class="breadcrumb-item"><a href="#">Annex</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Dashboard</h4>
+                    <div class="row">
+
+                        <!-- Column -->
+                        <!-- Column -->
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="card m-b-30 pt-4" style="height: 13rem !important;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-3 align-self-center">
+                                            <div class="round">
+                                                <i class="mdi mdi-account-multiple-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-center align-self-center">
+                                            <div class="m-l-10 ">
+                                                <h5 class="mt-0 round-inner">{{countUsers}}</h5>
+                                                <p class="mb-0 text-muted">All Users</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <!-- Column -->
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="card m-b-30 pt-4" style="height: 13rem !important;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-3 align-self-center">
+                                            <div class="round ">
+                                                <i class="mdi mdi-basket"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 align-self-center text-center">
+                                            <div class="m-l-10 ">
+                                                <h5 class="mt-0 round-inner">{{countOrders}}</h5>
+                                                <p class="mb-0 text-muted">All Orders</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <!-- Column -->
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="card m-b-30 pt-4" style="height: 13rem !important;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-3 align-self-center">
+                                            <div class="round">
+                                                <i class="mdi mdi-rocket"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 align-self-center text-center">
+                                            <div class="m-l-10">
+                                                <h5 class="mt-0 round-inner">₹{{totalSales.[0].TotalAmount }}</h5>
+                                                <p class="mb-0 text-muted">Total Sales</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                         <!-- Column -->
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="card m-b-30" style="height: 13rem !important;">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-3 align-self-center">
+                                            <div class="round">
+                                                <i class="mdi mdi-rocket"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 align-self-center text-center">
+                                            <div class="m-l-10">
+                                                <h4>Best User</h4>
+                                                <h5 class="mt-0 round-inner">{{bestUser.[0].user.FirstName }}</h5>
+                                                <p class="mb-0 text-muted">{{bestUser.[0].count}}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                       
+                       
+                  
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        {{!-- <div>
+            <!-- end page title end breadcrumb -->
+            <div class="container">
+                <canvas id="myChart"
+                    style="display: block;height: 326px;width: 767px;margin-top: -240px;margin-left: -103px;"></canvas>
+            </div>
+
+        </div> --}}
+        <div>
+            <div class="col-lg-6">
+                <div class="card m-b-30">
+                    <div class="card-body">
+
+
+
+                        <canvas id="myChart"></canvas>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+            <div class="col-lg-6">
+                <div class="card m-b-30">
+                    <div class="card-body" style="height: 580px;">
+
+
+
+                        <canvas id="myChart2" style="display: block;height: 384px;width: 556px;margin-top: 71px;"></canvas>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+        
+  
+    </div>
+
+
+
+    <!-- Page content Wrapper -->
+
+</div> <!-- content -->
+
+
+
+</div>
+<!-- End Right content here -->
+<div class="content" style="margin-top:-64px; ">
+<div class=" col-md-4 text-center" >
+    <div class="card">
+    <h4>Most Returned Product</h4>
+    <div class="w-100 text-center">
+  <img class="card-img-top" src="/images/products/{{mostReturnedProduct.[0].product.image.[0]}}" alt="Card image cap" style="width:150px ;height:150px;">
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{mostReturnedProduct.[0].product.WatchName}}</p>
+    <p class="card-text">{{mostReturnedProduct.[0].count}}</p>
+  </div>
+  </div>
+</div>
+<div class="col-md-4 text-center" >
+    <div class="card">
+    <h4>Most Cancelled Product</h4>
+    <div class="w-100 text-center">
+  <img class="card-img-top" src="/images/products/{{mostCanceledProduct.[0].product.image.[0]}}" alt="Card image cap" style="width:150px ;height:150px;">
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{mostCanceledProduct.[0].product.WatchName}}</p>
+    <p class="card-text">{{mostCanceledProduct.[0].count}}</p>
+  </div>
+  </div>
+</div>
+<div class="col-md-4 text-center" >
+    <div class="card">
+    <h4>Most Delivered Product </h4>
+    <div class="w-100 text-center">
+  <img class="card-img-top" src="/images/products/{{mostDeliveredProduct.[0].product.image.[0]}}" alt="Card image cap" style="width:150px ;height:150px;">
+  </div>
+  <div class="card-body">
+     <p class="card-text">{{mostDeliveredProduct.[0].product.WatchName}}</p>
+    <p class="card-text">{{mostDeliveredProduct.[0].count}}</p>
+  </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+{{!-- <footer class="footer">
+    © 2018 Annex by Mannatthemes.
+</footer> --}}
+
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+        type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: ['COD', 'RAZORPAY', 'PAYPAL'],
+            datasets: [{
+                label: 'TOTAL SALES',
+                data: [
+                    {{ cod.[0].CODcount }},
+            {{ razorpay.[0].razorpaycount }},
+                    {{ paypal.[0].paypalcount }},
+                   
+                ],
+    //backgroundColor:'green',
+    backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+
+    ],
+        borderWidth: 1,
+            borderColor: '#777',
+                hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+            }]
+        },
+    options: {
+        title: {
+            display: true,
+                text: 'Payment method',
+                    fontSize: 25
+        },
+        legend: {
+            display: true,
+                position: 'right',
+                    labels: {
+                fontColor: '#000'
+            }
+        },
+        layout: {
+            padding: {
+                left: 50,
+                    right: 0,
+                        bottom: 0,
+                            top: 0
+            }
+        },
+        tooltips: {
+            enabled: true
+        }
+    }
+    })
+
+
+
+    let myChart2 = document.getElementById('myChart2').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart2 = new Chart(myChart2, {
+        type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: ["Citizen","Diesel","Electricianz","G-Shock","Rolex","Timex"],
+            datasets: [{
+                label: ['Sale'],
+                data: [
+                    {{brands.[0].quantity}},
+                    {{brands.[1].quantity}},
+                    {{brands.[2].quantity}},
+                    {{brands.[3].quantity}},
+                    {{brands.[4].quantity}},
+                    {{brands.[5].quantity}},0
+                   
+                ],
+    //backgroundColor:'green',
+    backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+
+    ],
+        borderWidth: 1,
+            borderColor: '#777',
+                hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+            }]
+        },
+    options: {
+        title: {
+            display: true,
+                text: 'Brand wise sale',
+                    fontSize: 25
+        },
+        legend: {
+            display: true,
+                position: 'right',
+                    labels: {
+                fontColor: '#000'
+            }
+        },
+        layout: {
+            padding: {
+                left: 50,
+                    right: 0,
+                        bottom: 0,
+                            top: 0
+            }
+        },
+        tooltips: {
+            enabled: true
+        }
+    }
+    })
+
+
+</script>

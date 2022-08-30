@@ -1,0 +1,119 @@
+ <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+  
+</section>
+<section style="margin-top:50px ;" class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+               
+            </div>
+            <div class="card mb-4 mb-lg-0">
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <a href="/userOrders">All Orders</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <a href="/editprofile">Edit Profile</a>
+                          
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <a href="/change-password">Change Password</a>
+                          
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <a href="/userAddress">Address</a>
+                          
+                        </li>
+                         <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <a href="/usercart">Cart</a>
+                          
+                        </li>
+                         <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                            <a href="/userlogout">Log out</a>
+                          
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 container" >
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">First Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.FirstName}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                     <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Last Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.LastName}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.Email}}</p>
+                        </div>
+                    </div>
+                    <hr>
+               
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Mobile</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.PhoneNumber}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">referral Code</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.code}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                       <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Wallet Amount</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{user.wallet}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    {{!-- <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Address</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,331 @@
+<!-- LOADER -->
+<div id="loader">
+    <div class="position-center-center">
+        <div class="ldr"></div>
+    </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+   
+</section>
+
+<!-- Content -->
+<div id="content">
+
+    <!--======= PAGES INNER =========-->
+    <section class="chart-page padding-top-100 padding-bottom-100">
+        <div class="container">
+
+            <!-- Payments Steps -->
+            <div class="shopping-cart">
+
+                <!-- SHOPPING INFORMATION -->
+                <div class="cart-ship-info">
+                    <div class="row">
+
+                        <!-- ESTIMATE SHIPPING & TAX -->
+                        <div class="col-sm-12">
+
+                            <form id="checkout-form" action="" method="">
+                                <input type="hidden" name="UserId" value="{{loggedUser._id}}">
+
+
+                                <div id="accordion" class="col-md-6">
+                                    <h6>YOUR ADDRESS</h6>
+                                    <div class="panel">
+                                        <a href="/checkoutAddress" class="btn btn-dark">Add address</a>
+                                        <div class="accordion" id="accordionExample">
+                                            {{#each address}}
+                                            <div class="accordion-item ">
+                                                <h2 class="accordion-header d-flex px-4" id="{{this._id}}"
+                                                    style="display:flex ;">
+                                                    <input type="radio" id="rid{{this._id}}" value="{{this._id}}"
+                                                        name="address" style="height:-26px !important;width: 20px;" checked>
+                                                    <label for="rid{{this._id}}"
+                                                        style="margin-top: 26px;margin-left: 12px;"
+                                                        class="accordion-button  shadow-none border-0 fs-5"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#ids{{this._id}}" aria-expanded="true"
+                                                        aria-controls="ids{{this._id}}">
+                                                        {{this.FirstName}}
+                                                    </label>
+                                                </h2>
+                                                <div id="ids{{this._id}}" class="accordion-collapse collapse"
+                                                    aria-labelledby="{{this._id}}" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <p>{{this.FirstName}} {{this.LastName}}</p>
+                                                        <p>{{this.HouseName}}</p>
+                                                        <p>{{this.StreetName}}</p>
+                                                        <p>{{this.City}}</p>
+                                                        <p>{{this.State}}</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <!-- SUB TOTAL -->
+                                <div class="col-sm-5">
+                                    <h6>YOUR ORDER</h6>
+
+                                    <div class="order-place">
+                                        <div class="order-detail">
+                                            {{#each products}}
+                                            <p>{{this.product.WatchName}} <span>₹{{this.total}} </span></p>
+                                            {{/each}}
+                                            <p>Total Discount  <span id="offer">-<small>₹</small>{{grandTotal.discount}}</span></p>
+
+                                            <p>Coupon offer  <span id="offer">-<small>₹</small>0</span></p>
+                                            <p>Wallet <span id="walletTotal">-<small>₹</small>0</span></p>
+
+
+
+
+
+                                            <!-- SUB TOTAL -->
+                                            <p class="all-total">TOTAL COST <span id="grand-total">
+                                                    <small>₹</small>{{grandTotal.grandTotal}}</span></p>
+                                            <input type="hidden" name="couponAmmount" value="0" id="couponAmmount">
+                                            <input type="hidden" name="walletAmmount" value="0" id="walletAmmount">
+                                            <input type="hidden" id="grands-total" name="grandTotal"
+                                                value="{{grandTotal.grandTotal}}">
+                                        </div>
+                                        <div class="pay-meth">
+                                            <ul>
+
+                                                <li>
+                                                    <div class="radio">
+                                                        <input type="radio" name="Payment-method" id="radio1"
+                                                            value="COD" checked>
+                                                        <label for="radio1"> CASH ON DELIVERY</label>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="radio">
+                                                        <input type="radio" name="Payment-method" id="radio2"
+                                                            value="Razorpay">
+                                                        <label for="radio2"> RAZORPAY </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="radio">
+                                                        <input type="radio" style="height:-26 !important;"
+                                                            name="Payment-method" id="radio3" value="paypal">
+                                                        <label for="radio3"> PAYPAL </label>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+
+                                            <input type="submit" class="btn  btn-dark pull-right margin-top-30"
+                                                value="PLACE ORDER" onclick="return checkAddress()">
+                                            {{!-- <a href="#." class="btn  btn-dark pull-right margin-top-30">PLACE
+                                                ORDER</a> --}}
+                                                <span class="text-danger" id="addAddressError"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- DISCOUNT CODE -->
+                            <div class="col-sm-7" style="margin-left: ;">
+                                
+                                <form id="coupon-form">
+                                    <input type="text" placeholder="ENTER YOUR CODE IF YOU HAVE ONE" name="CouponName"
+                                        style="    width: 38%;">
+                                    <input type="hidden" value="{{loggedUser._id}}" name="UserId">
+                                    <input type="hidden" value="{{grandTotal.grandTotal}}" name="GrandTotal" id="wallet-total">
+                                    <button type="submit" class="btn btn-small btn-dark"
+                                        style="margin-top: 11px;margin-left: 14px;">APPLY
+                                        CODE</button>
+                                    <span class="mt-2 text-danger" id="coupon-status"></span>
+                                </form>
+
+                            </div>
+                            <!-- DISCOUNT CODE -->
+                            <div class="col-sm-7" style="margin-left: ;">
+
+                                <form id="wallet-form">
+                                    <input type="text" placeholder="{{loggedUser.wallet}}" name="wallet" value="{{loggedUser.wallet}}" style="    width: 38%;" readonly>
+                                    <input type="hidden" value="{{loggedUser._id}}" name="UserId">
+                                    <input type="hidden" value="{{grandTotal.grandTotal}}" name="GrandTotal" id="coupon-total">
+                                    <button type="submit" class="btn btn-small btn-dark"
+                                        style="margin-top: 11px;margin-left: 14px;">APPLY
+                                        WALLET</button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <script>
+        $("#checkout-form").submit((e) => {
+            e.preventDefault()
+
+
+
+            $.ajax({
+                url: '/place-order',
+                method: 'post',
+                data: $('#checkout-form').serialize(),
+                success: (response) => {
+
+                    if (response.codSuccess) {
+                        location.href = '/orderplaced'
+                    } else if (response.paypalSuccess) {
+
+
+                        {
+
+
+
+                            for (let i = 0; i < response.links.length; i++) {
+                                if (response.links[i].rel === 'approval_url') {
+                                    location.href = response.links[i].href
+
+
+                                }
+                            }
+                        }
+                    } else {
+                        console.log("hai sanjai")
+                        razorpayPayment(response)
+
+                    }
+                }
+            })
+        })
+        function razorpayPayment(order) {
+            var options = {
+                "key": "rzp_test_YqkGZqC5fG5070", // Enter the Key ID generated from the Dashboard
+                "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "WatchMen",
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "handler": function (response) {
+
+
+                    verifyPayment(response, order)
+                },
+                "prefill": {
+                    "name": "Gaurav Kumar",
+                    "email": "gaurav.kumar@example.com",
+                    "contact": "9999999999"
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+
+
+        }
+        function verifyPayment(payment, order) {
+            console.log(payment, order);
+            $.ajax({
+                url: '/verify-payment',
+                data: {
+                    payment,
+                    order
+                },
+                method: 'post',
+                success: (response) => {
+                    if (response.status) {
+                        location.href = '/orderplaced'
+                    } else {
+                        location.href = '/checkout'
+                    }
+                }
+            })
+        }
+    </script>
+    <script>
+        $("#coupon-form").submit((e) => {
+            e.preventDefault()
+
+            $.ajax({
+                url: '/couponDiscount',
+                data: $('#coupon-form').serialize(),
+
+                method: 'post',
+                success: (response) => {
+
+                    console.log("coupon sum",response.total)
+                    if (response.UserExists) {
+                        document.getElementById('coupon-status').innerHTML = 'Coupon already used'
+                    }
+                    else if (response.couponended) {
+                        document.getElementById('coupon-status').innerHTML = 'Coupon expired'
+
+                    }
+                    else if (response.noValidCoupon) {
+                        document.getElementById('coupon-status').innerHTML = 'No coupon exists'
+
+                    }
+                    else {
+                        document.getElementById('offer').innerHTML = -response.offer
+                        document.getElementById('couponAmmount').value = response.offer
+                        document.getElementById('grand-total').innerHTML = response.total
+                        document.getElementById('grands-total').value = response.total
+                        document.getElementById('coupon-total').value=response.total
+
+
+                    }
+                }
+
+            })
+        })
+    </script>
+    <script>
+        $("#wallet-form").submit((e) => {
+            e.preventDefault()
+
+            $.ajax({
+                url: '/wallet',
+                data: $('#wallet-form').serialize(),
+
+                method: 'post',
+                success: (response) => {
+                    console.log("wallet",response.total)
+                    document.getElementById('grand-total').innerHTML = response.total
+                    document.getElementById('grands-total').value = response.total
+                    document.getElementById('walletAmmount').value = response.wallet
+                    document.getElementById('walletTotal').innerHTML = response.wallet
+                    document.getElementById('wallet-total').innerHTML = response.total
+                }
+            })
+        })
+    </script>
+    <script>
+        function checkAddress(){
+            var getSeletedValue=document.querySelector('input[name="address"]:checked')
+            if(getSeletedValue!=null){
+                return true
+
+            }else{
+                document.getElementById("addAddressError").innerHTML = "Please select address"
+                return false
+            }
+        }
+    </script>

@@ -1,0 +1,106 @@
+<div class="page-content-wrapper ">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group float-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li class="breadcrumb-item"><a href="#">WatchMen</a></li>
+                            <li class="breadcrumb-item"><a href="#">Products</a></li>
+                            <li class="breadcrumb-item active">Add products</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Add products</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card m-b-30">
+                    <div class="card-body table-responsive">
+
+                        <div class="">
+                            <form action="/admin/addproducts" method="post" enctype="multipart/form-data">
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Watch Name</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="text" id="example-text-input"
+                                            name="WatchName">
+                                    </div>
+
+                                    <label class="col-sm-2 col-form-label">Brand</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="Brand">
+                                            {{#each brands}}
+                                            <option>{{this.BrandName}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-number-input" class="col-sm-2 col-form-label">Price</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="number" id="example-number-input"
+                                            name="Price">
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Category</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="Category">
+                                            {{#each category}}
+                                            <option>{{this.CategoryName}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2">Description</label>
+
+                                    <textarea required="" class="form-control col-sm-4" name="Description"></textarea>
+                                    <label for="example-number-input" class="col-sm-2 col-form-label">Stock</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="number" id="example-number-input"
+                                            name="Stock">
+                                    </div>
+
+                                </div>
+
+                                <div class="mb-3 col-lg-6">
+                                    <label for="formFile" class="form-label">Image</label>
+                                    <input class="form-control" type="file" id="formFile" name="Image" multiple>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <input type="submit" value="Add Product"
+                                        class="btn bg-primary text-white mt-3 mb-3">
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end row-->
+
+    </div><!-- container -->
+
+</div> <!-- Page content Wrapper -->
+
+</div> <!-- content -->
+
+<footer class="footer">
+    © 2018 Annex by Mannatthemes.
+</footer>
+
+</div>
+<!-- End Right content here -->
+
+</div>
+<!-- END wrapper -->
+<script defer src="https://cdn.crop.guide/loader/l.js?c=ZBQMTJ"></script>

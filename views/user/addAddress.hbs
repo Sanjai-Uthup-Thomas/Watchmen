@@ -1,0 +1,263 @@
+ <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+
+</section>
+<section style="margin-top:50px ;" class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+
+            </div>
+
+        </div>
+        <div class="col-lg-8 container">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form action="/AddAddress" method="post">
+                        <div class="row">
+                            <input type="hidden" name="UserId" value="{{loggedUser._id}}">
+
+                            <div class="col-sm-3">
+                                <p class="mb-0">First Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="FirstName" id="firstName"
+                                onkeyup="validateFirstName()" placeholder="First Name"><br>
+                                <span id="firstName-error" class="text-danger"></span>
+                                
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Last Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="LastName" id="lastName"
+                                onkeyup="validateLastName()" placeholder="Last name"><br>
+                                <span id="lastName-error" class="text-danger"></span>
+
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="email" name="Email" id="email"
+                                onkeyup="validateEmail()" placeholder="Email address"><br>
+                                <span id="email-error" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Mobile</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="number" name="PhoneNumber" id="phoneNumber"
+                                onkeyup="validatePhoneNumber()" placeholder="Phone Number"><br>
+                                <span id="phone-error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="HouseName"id="houseName"
+                                onkeyup="validateHouseName()" placeholder="House name"><br>
+                                <span id="houseName-error" class="text-danger"></span>
+                            </div>
+                             <div class="col-sm-9">
+                                
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="StreetName" id="streetName"
+                                onkeyup="validateStreetName()" placeholder="Street name"><br>
+                                <span id="streetName-error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">City</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="City" id="city"
+                                onkeyup="validateCity()" placeholder="City"><br>
+                                <span id="city-error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">State</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="State" id="state" onkeyup="validateState()" placeholder="State"><br>
+                                <span id="state-error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Country</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="Country" id="country" onkeyup="validateCountry()" placeholder="Country"><br>
+                                <span id="country-error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">ZIP code</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" name="ZIPcode" id="ZIPcode" onkeyup="validateZIPcode()" placeholder="ZIP code"><br>
+                                 <span id="ZIPcode-error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"></p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="submit" value="Save" class="btn" onclick="return validateForm()">
+                                 <span id="submit-error" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <hr>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+     var FirstNameError = document.getElementById('firstName-error');
+    var LastNameError = document.getElementById('lastName-error');
+    var EmailError = document.getElementById('email-error');
+    var PhoneError = document.getElementById('phone-error');
+    var HouseNameError = document.getElementById('houseName-error');
+    var StreetNameError = document.getElementById('streetName-error');
+    var CityError = document.getElementById('city-error');
+    var StateError = document.getElementById('state-error');
+    var CountryError = document.getElementById('country-error');
+    var ZIPcodeError = document.getElementById('ZIPcode-error');
+    var SubmitError = document.getElementById('submit-error');
+
+
+    function validateFirstName(){
+        var firstName = document.getElementById('firstName').value
+        if(firstName.length==0){
+            FirstNameError.innerHTML ="First name is required"
+            return false
+        }
+        FirstNameError.innerHTML =""
+        return true
+    }
+     function validateLastName(){
+        var lastName = document.getElementById('lastName').value
+        if(lastName.length==0){
+            LastNameError.innerHTML ="Last name is required"
+            return false
+        }
+        LastNameError.innerHTML =""
+        return true
+    }
+      function validateEmail(){
+        var Email = document.getElementById('email').value
+        if(Email.length==0){
+            EmailError.innerHTML ="Email is required"
+            return false
+        }
+        EmailError.innerHTML =""
+        return true
+    }
+     function validatePhoneNumber(){
+        var Phone = document.getElementById('phoneNumber').value
+        if(Phone.length==0){
+            PhoneError.innerHTML ="Phone number is required"
+            return false
+        }
+        PhoneError.innerHTML =""
+        return true
+    }
+     function validateHouseName(){
+        var houseName = document.getElementById('houseName').value
+        if(houseName.length==0){
+            HouseNameError.innerHTML ="House name is required"
+            return false
+        }
+        HouseNameError.innerHTML =""
+        return true
+    }
+     function validateStreetName(){
+        var streetName = document.getElementById('streetName').value
+        if(streetName.length==0){
+            StreetNameError.innerHTML ="Street name is required"
+            return false
+        }
+        StreetNameError.innerHTML =""
+        return true
+    }
+      function validateCity(){
+        var city = document.getElementById('city').value
+        if(city.length==0){
+            CityError.innerHTML ="City is required"
+            return false
+        }
+        CityError.innerHTML =""
+        return true
+    }
+       function validateState(){
+        var State = document.getElementById('state').value
+        if(State.length==0){
+            StateError.innerHTML ="State is required"
+            return false
+        }
+        StateError.innerHTML =""
+        return true
+    }
+       function validateCountry(){
+        var Country = document.getElementById('country').value
+        if(Country.length==0){
+            CountryError.innerHTML ="Country is required"
+            return false
+        }
+        CountryError.innerHTML =""
+        return true
+    }
+       function validateZIPcode(){
+        var ZIPcode = document.getElementById('ZIPcode').value
+        if(ZIPcode.length==0){
+            ZIPcodeError.innerHTML ="ZIP code is required"
+            return false
+        }
+        ZIPcodeError.innerHTML =""
+        return true
+    }
+    function validateForm(){
+        if(!validateFirstName()||!validateLastName()||!validateEmail()||!validatePhoneNumber()||!validateHouseName()||!validateStreetName()||!validateCity()||!validateState()||!validateCountry()||!validateZIPcode()){
+            SubmitError.innerHTML= "Please fix the form"
+            return false
+        }
+    }
+</script>

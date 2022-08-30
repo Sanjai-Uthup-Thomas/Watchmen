@@ -1,0 +1,46 @@
+ <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+  
+</section>
+
+<section class="container">
+    <h4 style="text-align: center;">YOUR ADDRESSES</h4>
+     <section>
+    <a href="/addAddress" class="btn" style="text-align:center ;">ADD ADDRESS</a>
+    
+</section>
+    <br>
+   
+  
+<div style="display:flex ;gap:20px">
+    {{#each address}}
+
+    <div class="card md-col-4 " style="width: 18rem;border: .5px solid grey;border-radius: 10px; padding: .5rem">
+  <div class="card-body" style="padding: 20px;">
+    
+    <p>{{this.FirstName}} {{this.LastName}}</p>
+    <p>{{this.HouseName}}</p>
+    <p>{{this.StreetName}}</p>
+    <p>{{this.City}}</p>
+    <p>{{this.State}}</p>
+    <p>{{this.Country}}</p>
+    <p>{{this.PostalCode}}</p>
+    <p>{{this.PhoneNumber}}</p>
+
+
+    <a href="/editaddress/{{this._id}}">Edit</a>
+    <a href="/deleteaddress/{{this._id}}">Remove</a>
+
+  </div>
+</div>
+{{/each}}
+ 
+</div>
+</section>
+<br>

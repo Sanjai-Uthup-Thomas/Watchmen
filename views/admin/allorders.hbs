@@ -1,0 +1,99 @@
+<!-- Top Bar End -->
+
+<div class="page-content-wrapper ">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group float-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li class="breadcrumb-item"><a href="#">Annex</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item active">starter</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Orders</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card m-b-30">
+                    <div class="card-body table-responsive">
+
+                        <div class="">
+                            <table id="userTable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        
+                                        <th>Order Status</th>
+                                        <th>Total Amount</th>
+                                        <th>Payment-method</th>
+                                        <th>Details</th>
+                                        <th>Update Order Status</th>
+
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    {{#each orders}}
+                                    <tr>
+                                        <td>{{this._id}}</td>
+                                        
+                                        <td>{{this.Status}}</td>
+                                        <td>{{this.TotalAmount}}</td>
+                                        <td>{{this.PaymentMethod}}</td>
+                                        <td> <a class="btn btn-primary" href="/admin/vieworder/{{this._id}}">View Details</a></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    Order Status
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="/admin/ordercancel/{{this._id}}">Cancel</a>
+                                                    <a class="dropdown-item" href="/admin/orderpacked/{{this._id}}">Packed</a>
+                                                    <a class="dropdown-item" href="/admin/ordershipped/{{this._id}}">shipped</a>
+                                                    <a class="dropdown-item" href="/admin/orderdelivered/{{this._id}}">Delivered</a>
+
+
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        
+
+                                    </tr>
+                                    {{/each}}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end row-->
+
+    </div><!-- container -->
+
+</div> <!-- Page content Wrapper -->
+
+</div> <!-- content -->
+
+<footer class="footer">
+    © 2018 Annex by Mannatthemes.
+</footer>
+
+</div>
+<!-- End Right content here -->
+
+</div>
+<!-- END wrapper -->

@@ -1,0 +1,200 @@
+<div class="page-content-wrapper ">
+
+    <div class="container-fluid">
+
+       
+     
+
+      
+  
+        <div class="row col-12">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+
+
+                        <h4 class="mt-0 header-title">Sales Report</h4>
+                        <form action="/admin/dateSales" method="post">
+                             <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                                width="100%">
+                                  <input type="datetime-local" name="fromDate" id="" class="mb-3" value="{{date.fromDate}}">
+                                <input type="text"  id="" value="TO" class="text-center" readonly  style="width:50px;">
+                                <input type="datetime-local" name="toDate" id="" value="{{date.toDate}}">
+                                <button type="submit" class="btn btn-small btn-dark ml-3">submit date</button>
+                                <thead>
+                                    <tr>
+                                            <th>Date</th>
+                                        <th>Total Price</th>
+                                        <th>Total Discount</th>
+                                        <th>Total Coupon Discount</th>
+                                        <th>Total wallet Used</th>
+                                        <th>Total After Discount</th>
+                                        <th>Total Sales</th>
+
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    {{#each dateSales}}
+                                    <tr>
+                                         <td>{{this._id.day}}-{{this._id.month}}-{{this._id.year}}</td>
+                                        <td>{{this.SubTotal}}</td>
+                                        <td>{{this.DiscountAmount}}</td>
+                                        <td>{{this.couponTotal}}</td>
+                                        <td>{{this.walletTotal}}</td>
+                                        <td>{{this.grandTotal}}</td>
+                                        <td>{{this.TotalAmount}}</td>
+
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+
+    </div>
+    <!-- Page content Wrapper -->
+
+</div> <!-- content -->
+
+
+
+</div>
+<!-- End Right content here -->
+
+</div>
+<footer class="footer">
+    © 2018 Annex by Mannatthemes.
+</footer>
+
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+        type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: ['COD', 'RAZORPAY', 'PAYPAL'],
+            datasets: [{
+                label: 'TOTAL SALES',
+                data: [
+                    {{ cod.[0].CODcount }},
+            {{ razorpay.[0].razorpaycount }},
+                    {{ paypal.[0].paypalcount }},
+                   
+                ],
+    //backgroundColor:'green',
+    backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+
+    ],
+        borderWidth: 1,
+            borderColor: '#777',
+                hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+            }]
+        },
+    options: {
+        title: {
+            display: true,
+                text: 'Payment method',
+                    fontSize: 25
+        },
+        legend: {
+            display: true,
+                position: 'right',
+                    labels: {
+                fontColor: '#000'
+            }
+        },
+        layout: {
+            padding: {
+                left: 50,
+                    right: 0,
+                        bottom: 0,
+                            top: 0
+            }
+        },
+        tooltips: {
+            enabled: true
+        }
+    }
+    })
+
+
+
+    let myChart2 = document.getElementById('myChart2').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart1 = new Chart(myChart2, {
+        type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: ['Diesel','Electricianz'],
+            datasets: [{
+                label: 'Brand wise sale',
+                data: [
+                    {{brands.[0].quantity}},
+                    {{brands.[1].quantity}},
+                    {{brands.[2].quantity}},
+                    {{brands.[3].quantity}},
+                    {{brands.[4].quantity}},
+                    {{brands.[5].quantity}},0
+                   
+                ],
+    //backgroundColor:'green',
+    backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+
+    ],
+        borderWidth: 1,
+            borderColor: '#777',
+                hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+            }]
+        },
+    options: {
+        title: {
+            display: true,
+                text: 'Payment method',
+                    fontSize: 25
+        },
+        legend: {
+            display: true,
+                position: 'right',
+                    labels: {
+                fontColor: '#000'
+            }
+        },
+        layout: {
+            padding: {
+                left: 50,
+                    right: 0,
+                        bottom: 0,
+                            top: 0
+            }
+        },
+        tooltips: {
+            enabled: true
+        }
+    }
+    })
+
+
+</script>

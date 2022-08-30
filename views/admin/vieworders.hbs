@@ -1,0 +1,151 @@
+<!-- Top Bar End -->
+
+<div class="page-content-wrapper ">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group float-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li class="breadcrumb-item"><a href="#">nnex</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item active">starter</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Orders</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card m-b-30">
+                    <div class="card-body table-responsive">
+
+                        <div class="">
+                            <table id="userTabl" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Product Name</th>
+                                        <th>MRP</th>
+                                        <th>Product Price</th>
+                                        <th>Product Quantity</th>
+                                        <th>Total Price</th>
+
+
+
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    {{#each products.orderItems}}
+                                    <tr>
+                                        <td class="border-0">{{this.product._id}}</td>
+                                        <td>{{this.product.WatchName}}</td>
+                                        <td>{{this.MRP}}</td>
+                                        <td>{{this.Price}}</td>
+                                        <td>{{this.quantity}}</td>
+                                        <td>{{this.subtotal}}</td>
+
+
+                                    </tr>
+                                    {{/each}}
+                                    <tr>
+                                        <td ></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Sub Total</td>
+                                        <td>{{order.subtotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td>Total Discount</td>
+                                        <td>-{{order.discount}}</td>
+                                    </tr>
+                                      <tr>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td>Coupon Amount</td>
+                                        <td>-{{order.couponAmount}}</td>
+                                    </tr>
+                                        <tr>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td>wallet Amount</td>
+                                        <td>-{{order.WalletAmmount}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td class="border-0"></td>
+                                        <td>Grand Total</td>
+                                        <td>₹{{order.TotalAmount}}</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="card m-b-30">
+                    <div class="card-body table-responsive">
+
+                        <div class="">
+                            <h3>
+                                Delivery Address
+                            </h3>
+
+                            <p>{{address.Address.FirstName}} {{address.Address.LastName}}</p>
+                            <p>{{address.Address.PhoneNumber}}</p>
+                            <p>{{address.Address.HouseName}}</p>
+                            <p>{{address.Address.StreetName}}</p>
+                            <p>{{address.Address.City}}</p>
+                            <p>{{address.Address.State}}</p>
+                            <p>{{address.Address.Country}}</p>
+                            <p>{{address.Address.ZIPcode}}</p>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end row-->
+
+    </div><!-- container -->
+
+</div> <!-- Page content Wrapper -->
+
+</div> <!-- content -->
+
+<footer class="footer">
+    © 2018 Annex by Mannatthemes.
+</footer>
+
+</div>
+<!-- End Right content here -->
+
+</div>
+<!-- END wrapper -->

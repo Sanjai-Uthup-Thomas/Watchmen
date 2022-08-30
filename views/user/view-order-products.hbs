@@ -1,0 +1,40 @@
+  <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div> 
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+   
+  </section>
+  <div class="container">
+      <!-- Popular Item Slide -->
+            <div class="papular-block row"> 
+              {{#each products}}
+              <!-- Item -->
+              <div class="col-md-4">
+                <div class="item"> 
+                  <!-- Item img -->
+                  <div class="item-img" style="text-align:center ;"> <img class="img-" src="/images/products/{{this.product.image.[0]}}" alt=""  style="height: 250px;width: 200px;object-fit:cover">
+                  
+                  </div>
+                  <!-- Item Name -->
+                  <div class="item-name"><a href="/productdetails/{{this._id}}">{{this.product.WatchName}}</a>
+                  </div>
+                  <!-- Price --> 
+                 
+
+                    <span class="price" >QUANTITY :{{this.quantity}}</span>
+                    <span class="price" >Price :{{this.product.Price}}</span>
+
+
+                  </div>
+              </div>
+              {{/each}}
+               {{!-- <span class="price">TOTAL AMOUNT :₹{{TotalAmount.grandTotal}}</span>  --}}
+            </div>
+
+            
+            
+          </div>

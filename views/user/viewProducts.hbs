@@ -1,0 +1,121 @@
+<!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+
+</section>
+
+<!-- Content -->
+<div id="content">
+
+  <!-- Products -->
+  <section class="shop-page padding-top-100 padding-bottom-100">
+    <div class="container">
+      <div class="row">
+
+        <!-- Shop SideBar -->
+        <div class="col-sm-3">
+          <div class="shop-sidebar">
+
+            <!-- Category -->
+            <h5 class="shop-tittle margin-bottom-30">category</h5>
+            <ul class="shop-cate">
+              {{#each category}}
+              <li><a href="/categoryWise/{{this._id}}">{{this.CategoryName}}<span></span></a></li>
+              {{/each}}
+            </ul>
+
+            <!-- FILTER BY PRICE -->
+            {{!-- <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTER BY PRICE</h5> --}}
+
+
+
+            <!-- TAGS -->
+            {{!-- <h5 class="shop-tittle margin-top-60 margin-bottom-30">PAUPLAR TAGS</h5>
+            <ul class="shop-tags">
+              <li><a href="#.">Towels</a></li>
+              <li><a href="#.">Chair</a></li>
+              <li><a href="#.">Bedsheets</a></li>
+              <li><a href="#.">Shoe</a></li>
+              <li><a href="#.">Curtains</a></li>
+              <li><a href="#.">Clocks</a></li>
+              <li><a href="#.">TV Cabinets</a></li>
+              <li><a href="#.">Best Seller</a></li>
+              <li><a href="#.">Top Selling</a></li>
+            </ul> --}}
+
+            <!-- BRAND -->
+            <h5 class="shop-tittle margin-top-60 margin-bottom-30">brands</h5>
+            <ul class="shop-cate">
+              {{#each brands}}
+              <li><a href="/brandWise/{{this._id}}">{{this.BrandName}}</a></li>
+              {{/each}}
+
+            </ul>
+
+            <!-- SIDE BACR BANER -->
+            {{!-- <div class="side-bnr margin-top-50"> <img class="img-responsive" src="images/sidebar-bnr.jpg" alt="">
+              <div class="position-center-center"> <span class="price"><small>$</small>299</span>
+                <div class="bnr-text">look
+                  hot
+                  with
+                  style</div>
+              </div>
+            </div> --}}
+          </div>
+        </div>
+
+        <!-- Item Content -->
+        <div class="col-sm-9">
+
+
+          <!-- Popular Item Slide -->
+          <div class="papular-block row">
+            {{#each products}}
+            <!-- Item -->
+            <div class="col-md-4 col-sm-6">
+              <div class="item">
+                <!-- Item img -->
+                <div class="item-img"> <img class="img-1" src="images/products/{{this.image.[0]}}" alt=""
+                    style="height: 250px;width: 200px"> <img class="img-2" src="images/products/{{this.image.[1]}}"
+                    alt="">
+                  <!-- Overlay -->
+                  <div class="overlay">
+                    <div class="position-center-center">
+                      <div class="inn"><a href="images/products/{{this.image.[2]}}" data-lighter><i
+                            class="icon-magnifier"></i></a>
+                        <button onclick="addToCart('{{this._id}}')" style="border: 0px;background: transparent">
+                          <i class="icon-basket"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item Name -->
+                <div class="item-name">
+                  <p>{{this.Brand}}</p><a href="/productdetails/{{this._id}}">{{this.WatchName}}</a>
+                </div>
+                <!-- Price -->
+
+                {{#if offer}}
+                <span class="price"><del>₹{{this.Price}}</del>₹{{this.discountPrice}} </span>
+
+                {{else}}
+
+                <span class="price">₹{{this.Price}}</span>
+
+                {{/if}}
+              </div>
+            </div>
+            {{/each}}
+
+
+          
+          </div>
+        </div>
+      </div>
+  </section>

@@ -1,0 +1,101 @@
+  <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+ <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+  
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!-- Popular Products -->
+    <section class="padding-top-100 padding-bottom-100">
+      <div class="container"> 
+        
+        <!-- SHOP DETAIL -->
+        <div class="shop-detail">
+          <div class="row"> 
+            
+            <!-- Popular Images Slider -->
+            <div class="col-md-7"> 
+              
+              <!-- Place somewhere in the <body> of your page -->
+              <div id="slider-shop" class="flexslider text-center">
+                <ul class="slides">
+                  <li> <img class="img-responsive mx-auto" style="height:600px ;width:400px" src="/images/products/{{product.image.[0]}}" alt=""> </li>
+                  <li> <img class="img-responsive mx-auto" style="height:600px ;width:400px"src="/images/products/{{product.image.[1]}}" alt=""> </li>
+                  <li> <img class="img-responsive" style="height:600px ;width:400px"src="/images/products/{{product.image.[2]}}" alt=""> </li>
+
+
+                </ul>
+              </div>
+              <div id="shop-thumb" class="flexslider">
+                <ul class="slides" style="display:flex;">
+                  <li> <img class="img-responsive" style="width:170px"src="/images/products/{{product.image.[0]}}" alt=""> </li>
+                  <li> <img class="img-responsive" style="width:170px"src="/images/products/{{product.image.[1]}}" alt=""> </li>
+                  <li> <img class="img-responsive" style="width:170px"src="/images/products/{{product.image.[2]}}" alt=""> </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- COntent -->
+            <div class="col-md-5">
+              <h4>{{product.WatchName}}</h4>
+              
+                  {{#if product.offer}}
+                  <span class="price"><del>₹{{product.Price}}</del>₹{{product.discountPrice}} </span>
+
+                  {{else}}
+
+                  <span class="price">₹{{product.Price}}</span>
+
+                  {{/if}}
+              
+              <!-- Sale Tags -->
+              
+              <ul class="item-owner">
+             
+                <li>Brand:<span> {{product.Brand.[0]}}</span></li>
+              </ul>
+              
+              <!-- Item Detail -->
+              <p>{{product.Description}}</p>
+              
+              <!-- Short By -->
+              <div class="some-info">
+                <ul class="row margin-top-30">
+                  <li class="col-xs-4">
+                    <div class="quinty"> 
+                     
+                    </div>
+                  </li>
+                  
+                  <!-- COLORS -->
+                  <li class="col-xs-8">
+              
+                  </li>
+                  
+                  <!-- ADD TO CART -->
+                  {{#if loggedUser}}
+                  <li class="col-xs-6"><button onclick="addToCart('{{product._id}}')" class="btn">ADD TO CART</button> </li>
+                  {{else}}
+                    <li class="col-xs-6"><a href="/userlogin" class="btn">ADD TO CART</a> </li>
+                    {{/if}}
+                </ul>
+          
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+    
+      </div>
+    </section>
+    
+   
+ 

@@ -1,0 +1,106 @@
+ <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+<!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+  
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!--======= PAGES INNER =========-->
+    <section class="chart-page padding-top-100 padding-bottom-100">
+      <div class="container"> 
+        
+        <!-- Payments Steps -->
+        <div class="shopping-cart"> 
+          
+          <!-- SHOPPING INFORMATION -->
+          <div class="cart-ship-info">
+            <div class="row"> 
+              
+              <!-- ESTIMATE SHIPPING & TAX -->
+              <div class="col-sm-7">
+                <h6>LOGIN YOUR ACCOUNT</h6>
+                <form action="/userlogin" method="post">
+                  <ul class="row">
+                  
+                    <!-- Name -->
+                    <li class="col-md-12">
+                      {{#if userloginErr}}
+                    <p class="usererr text-danger">{{userloginErr}}</p>
+                    {{/if}}
+                    {{#if blockErr}}
+                    <p class="usererr text-danger">{{blockErr}}</p>
+                    {{/if}}
+                      <label> EMAIL
+                        <input type="email" name="Email" value="" placeholder="" id="email">
+                      </label>
+                    </li>
+                    <!-- LAST NAME -->
+                    <li class="col-md-12">
+                      <label> PASSWORD
+                        <input type="password" name="Password" value="" placeholder="" id="password">
+                      </label>
+                    </li>
+                    
+                    <!-- LOGIN -->
+                    <li class="col-md-4">
+                      
+                      <input type="submit" value="LOGIN" class="btn">
+                      
+                    </li>
+                    
+                    <!-- CREATE AN ACCOUNT -->
+                    <li class="col-md-4">
+                      <div class="checkbox margin-0 margin-top-20 text-right">
+                        <a href="/usersignup">Register</a>
+                      </div>
+                    </li>
+                    
+                    <!-- FORGET PASS -->
+                    {{!-- <li class="col-md-4">
+                      <div class="checkbox margin-0 margin-top-20 text-right">
+                        <a href="#.">Forget Password</a>
+                      </div>
+                    </li> --}}
+                  </ul>
+                </form>
+                
+              </div>
+              
+              <!-- SUB TOTAL -->
+              {{!-- <div class="col-sm-5">
+                <h6>LOGIN WITH</h6>
+                
+                <ul class="login-with">
+                	<li>
+                    	<a href="#."><i class="fa fa-facebook"></i>FACEBOOK</a>
+                    
+                    </li>
+                    
+                    <li>
+                    	<a href="#."><i class="fa fa-google"></i>GOOGLE</a>
+                    
+                    </li>
+                    
+                    <li>
+                    	<a href="#."><i class="fa fa-twitter"></i>TWITTER</a>
+                    
+                    </li>
+                
+                </ul>
+                
+                
+              </div> --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    

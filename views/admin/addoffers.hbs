@@ -1,0 +1,183 @@
+<div class="page-content-wrapper ">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group float-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li class="breadcrumb-item"><a href="#">Annex</a></li>
+                            <li class="breadcrumb-item"><a href="#">Category</a></li>
+                            <li class="breadcrumb-item active">Add Offers</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Add Offers</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+        <div class="row col-6">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card m-b-30">
+                    <div class="card-body table-responsive">
+                        <label>
+                            <p class="emailExstsErr text-danger"></p>
+                        </label>
+
+                        <div class="">
+                            <form action="/admin/addoffers" method="post">
+                                <div class="form-group  col-md-12">
+                                  
+                               
+                                     <div class="form-group col-md-6">
+                                        <label for="example-text-input" class=" col-form-label">Offer percentage</label>
+                                        <div class="">
+                                            <input class="form-control" type="number" id="categoryOffer"
+                                                name="OfferPercentage" onkeyup="validateCategory()">
+                                                <span id="categoryOffer-error" class="text-danger my-auto"></span>
+                                        </div>
+
+
+
+                                    </div>  <label class="col-sm-4 col-form-label">Category</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="Category">
+                                            {{#each category}}
+                                            <option>{{this.CategoryName}}</option>
+                                            {{/each}}
+                                            
+                                        </select>
+                                    </div>
+                                 
+                                </div>
+                              
+                                    <input type="submit" value="Add Offer" class="btn bg-primary text-white mt-3 mb-5" onclick="return validateForm()">
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end row-->
+         <div class="row col-6">
+            <div class="col-lg-12 col-sm-12">
+                <div class="card m-b-30">
+                    <div class="card-body table-responsive">
+                        <label>
+                            <p class="emailExstsErr text-danger"></p>
+                        </label>
+
+                        <div class="">
+                            <form action="/admin/addproductoffers" method="post">
+                                <div class="form-group  col-md-12">
+                                  
+                               
+                                     <div class="form-group col-md-6">
+                                        <label for="example-text-input" class=" col-form-label">Offer percentage</label>
+                                        <div class="">
+                                            <input class="form-control" type="number" id="productOffer"
+                                                name="OfferPercentage" onkeyup="validateProduct()">
+                                                <span id="productOffer-error" class="text-danger my-auto"></span>
+                                        </div>
+
+
+
+                                    </div>  <label class="col-sm-4 col-form-label">Product</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="WatchName">
+                                            {{#each products}}
+                                            <option>{{this.WatchName}}</option>
+                                            {{/each}}
+                                            
+                                        </select>
+                                    </div>
+                                 
+                                </div>
+                              
+                                    <input type="submit" value="Add Offer" class="btn bg-primary text-white mt-3 mb-5" onclick="return validateForm2()">
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end row-->
+
+    </div><!-- container -->
+
+</div> <!-- Page content Wrapper -->
+
+</div> <!-- content -->
+
+<footer class="footer">
+    © 2018 Annex by Mannatthemes.
+</footer>
+
+</div>
+<!-- End Right content here -->
+
+</div>
+<!-- END wrapper -->
+<script>
+     var categoryError = document.getElementById('categoryOffer-error');
+    var SubmitError = document.getElementById('submit-error');
+
+        function validateCategory(){
+        var category = document.getElementById('categoryOffer').value
+        if(category.length==0){
+            categoryError.innerHTML ="Required"
+            return false
+        }
+        if(!category.match(/^0*(?:[1-9][0-9]?|99)$/)){
+            categoryError.innerHTML="Enter offer from 1-99"
+            return false
+        }
+        categoryError.innerHTML =""
+        return true
+    }
+      function validateForm(){
+        
+        if(!validateCategory()){
+            SubmitError.innerHTML= "Please fix the form"
+            return false
+        }
+    }
+
+</script>
+<script>
+     var productError = document.getElementById('productOffer-error');
+    var Submit2Error = document.getElementById('submit2-error');
+
+        function validateProduct(){
+        var product = document.getElementById('productOffer').value
+        if(product.length==0){
+            productError.innerHTML ="Required"
+            return false
+        }
+        if(!product.match(/^0*(?:[1-9][0-9]?|99)$/)){
+            productError.innerHTML="Enter offer from 1-99"
+            return false
+        }
+        productError.innerHTML =""
+        return true
+    }
+      function validateForm2(){
+        if(!validateProduct()){
+            Submit2Error.innerHTML= "Please fix the form"
+            return false
+        }
+    
+    }
+
+</script>

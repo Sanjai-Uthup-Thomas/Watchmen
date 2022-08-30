@@ -1,0 +1,75 @@
+<!-- LOADER -->
+<div id="loader">
+    <div class="position-center-center">
+        <div class="ldr"></div>
+    </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+   
+</section>
+<section class="ml-2">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <div class="card m-b-30">
+                <div class="card-body table-responsive">
+
+                    <div class="">
+                        <table id="orderTable" class="table mt-5">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Payment-method</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                {{#each orders}}
+                                <tr>
+                                    <td>{{this.date}}</td>
+
+                                    <td>{{this.TotalAmount}}</td>
+                                    <td>{{this.PaymentMethod}}</td>
+                                    <td>{{this.Status}}</td>
+                                    <td>
+
+                                        <a href="/viewOrder/{{this._id}}" class="btn btn-small ml-auto m-2 mb-3" style="
+   
+                                                                         margin-bottom: 13px;">View Products</a><br>
+
+                                        {{#if cancel}}
+                                        <a href="/cancelOrder/{{this._id}}" class="btn btn-small ml-auto m-2 ">Cancel
+                                            Order</a>
+                                        {{/if}}
+                                        {{#if Return}}
+                                        <a href="/returnOrder/{{this._id}}" class="btn btn-small ml-auto m-2 ">Return
+                                            Order</a>
+                                        {{/if}}
+
+
+                                    </td>
+                                    <td>
+                                        <a href="/orderinvoice/{{this._id}}"
+                                            class="btn btn-small ml-auto m-2">Invoice</a>
+                                    </td>
+
+                                </tr>
+                                {{/each}}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end row-->
+
+    </div>
+</section>

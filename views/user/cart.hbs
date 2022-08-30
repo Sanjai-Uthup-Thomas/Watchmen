@@ -1,0 +1,283 @@
+<!-- LOADER -->
+<div id="loader">
+    <div class="position-center-center">
+        <div class="ldr"></div>
+    </div>
+</div>
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5">
+
+</section>
+<!-- Content -->
+<div id="content">
+
+    <!--======= PAGES INNER =========-->
+    <section class="padding-top-100 padding-bottom-100 pages-in chart-page">
+        <div class="">
+            {{#if products}}
+            <!-- Payments Steps -->
+            <div class="shopping-cart ">
+                <div class="cart-head">
+                    <table style="width:100%">
+                        <thead class="text-center ">
+                            <tr>
+                                <th>
+                                    <h6 class="text-center  "
+                                        style="padding-bottom:3rem !important; font-weight:bold !important">Product</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-center "
+                                        style="padding-bottom:3rem !important; font-weight:bold !important"> Name</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-center "
+                                        style="padding-bottom:3rem !important; font-weight:bold !important"> Price</h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-center "
+                                        style="padding-bottom:3rem !important; font-weight:bold !important"> Quantity
+                                    </h6>
+                                </th>
+                                <th>
+                                    <h6 class="text-center "
+                                        style="padding-bottom:3rem !important; font-weight:bold !important"> Total Price
+                                    </h6>
+                                </th>
+                                <th></th>
+
+
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            {{#each products}}
+
+                            <tr>
+
+                                <td>
+                                    <a href="/productdetails/{{this.product._id}}" class="item-img"> <img
+                                            class="media-object" src="images/products/{{this.product.image.[0]}}" alt=""
+                                            style="width:170px ;height:170px"> </a>
+                                </td>
+                                <td>
+
+                                    <h6>{{this.product.WatchName}}</h6>
+
+
+                                </td>
+                                <td>
+                                    <span class="price"><small>₹</small>{{this.product.Price}}</span>
+                                </td>
+
+                                <td>
+
+                                    <button class="cart-item-count mr-3"
+                                        onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../loggedUser._id}}',-1)">-</button>
+
+                                    <span id="{{this.product._id}}"> {{this.quantity}}</span>
+                                    <button class="cart-item-count ml-3"
+                                        onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../loggedUser._id}}',1)">+</button>
+
+                                </td>
+
+                                <td> <span>₹</span><span class="price" id="p{{this.product._id}}">{{this.total}}</span>
+                                </td>
+                                <td>
+                                    <button onclick="deleteItem('{{this._id}}','{{this.product._id}}')"><i
+                                            class="icon-close"></i></button>
+                                </td>
+
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+
+
+                    <!--======= PAGES INNER =========-->
+                    <section class="padding-top-100 padding-bottom-100 light-gray-bg shopping-cart small-cart">
+                        <div class="container">
+
+                            <!-- SHOPPING INFORMATION -->
+                            <div class="cart-ship-info margin-top-0">
+                                <div class="row">
+
+                                    <!-- DISCOUNT CODE -->
+                                    <div class="col-sm-7">
+                                        {{!-- <h6>DISCOUNT CODE</h6>
+                                        <form id="coupon-form">
+                                            <input type="text" placeholder="ENTER YOUR CODE IF YOU HAVE ONE"
+                                                name="CouponName">
+                                            <input type="hidden" value="{{loggedUser._id}}" name="UserId">
+                                            <input type="hidden" value="{{grandTotal.grandTotal}}" name="GrandTotal">
+                                            <button type="submit" class="btn btn-small btn-dark">APPLY
+                                                CODE</button>
+                                            <span class="mt-2 text-danger" id="coupon-status"></span>
+                                        </form> --}}
+
+
+                                    </div>
+
+                                    <!-- SUB TOTAL -->
+                                    <div class="col-sm-5">
+                                        <h6>grand total</h6>
+                                        <div class="grand-total">
+                                            <div class="order-detail">
+                                                {{!-- {{#each products}}
+                                                <p>{{this.product.WatchName}}
+
+                                                    <span id="total">{{../total}}</span>
+                                                </p>
+                                                {{/each}} --}}
+
+
+                                                <!-- SUB TOTAL -->
+                                                <p class="all-total">TOTAL <span >
+                                                        {{grandTotal.subtotal}}</span><span>₹</span></p>
+
+                                                <p class="all-total">DISCOUNT <span id="discount">
+                                                        {{grandTotal.discount}}</span><span>₹</span></p>
+
+
+                                                <p class="all-total">TOTAL COST <span id="grand-total">
+                                                        {{grandTotal.grandTotal}}</span><span>₹</span></p>
+
+
+                                            </div>
+                                            <div class="coupn-btn"> <a href="/checkout" class="btn">Checkout</a> <a
+                                                    href="/" class="btn">Continue Shopping</a> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div style="text-align: center;">
+                            <h4>Cart is empty</h4>
+                            <a href="/">Continue shopping</a>
+                        </div>
+                        {{/if}}
+
+                </div>
+            </div>
+    </section>
+
+</div>
+{{!-- <div>
+    <table class="text-center">
+        <thead>
+            <tr>
+                <th class="product-thumbnail">product</th>
+                <th class="product-price">price</th>
+                <th class="product-quantity">Quantity</th>
+                <th class="product-subtotal">total</th>
+                <th class="product-remove">remove</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <td class="product-thumbnail">
+                    <div class="pro-thumbnail-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="pro-thumbnail-info text-left">
+                        <h6 class="product-title-2">
+                            <a href="#">sam</a>
+                        </h6>
+                        <p>Brand: Brand Name</p>
+                        <p>Model: Grand s2</p>
+                        <p> djbidie</p>
+                    </div>
+                </td>
+                <td class="product-price">100</td>
+
+                <td class="product-quantity">
+                    {{!-- <div class="cart-plus-minus f-left">
+                        <input type="text" value="{{this.quantity}}" name="qtybutton" class="cart-plus-minus-box">
+                    </div> --}}
+                    {{!-- <div>
+                        <button class="cart-item-count mr-3 border">-</button>
+                        <span>10</span>
+                        <button class="cart-item-count border ml-3" onclick="">+</button>
+                    </div>
+
+                </td>
+                <td class="product-subtotal">$1020.00</td>
+                <td>
+                    <abutton href="" class="btn btn-danger" onclick="">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div> --}}
+<script>
+    function changeQuantity(cartId, proId, userId, count, total) {
+
+        let quantity = parseInt(document.getElementById(proId).innerHTML)
+        count = parseInt(count)
+        $.ajax({
+            url: '/change-product-quantity',
+            data: {
+                user: userId,
+                cart: cartId,
+                product: proId,
+                count: count,
+                quantity: quantity,
+
+            },
+            method: "post",
+            success: (response) => {
+
+                if (response.removeProduct) {
+
+                    location.reload()
+                }
+                // else if (response.status) {
+                //   location.reload()
+                //  }
+                else {
+                    document.getElementById(proId).innerHTML = quantity + count
+                    document.getElementById('grand-total').innerHTML = response.grandTotal.grandTotal
+                    document.getElementById('sub-total').innerHTML = response.grandTotal.subtotal
+                    document.getElementById('discount').innerHTML = response.grandTotal.discount
+
+
+                    document.getElementById("p" + proId).innerHTML = response.total.total
+                    document.getElementById('total1').innerHTML = response.total.total
+
+
+
+
+                }
+
+
+            }
+        })
+    }
+</script>
+<script>
+    function deleteItem(cartId, proId) {
+
+        $.ajax({
+            url: '/deleteProduct',
+            data: {
+                cart: cartId,
+                product: proId
+            },
+            method: 'post',
+            success: (response) => {
+                if (response) {
+
+                    location.reload()
+
+                }
+            }
+        })
+    }
+
+</script>

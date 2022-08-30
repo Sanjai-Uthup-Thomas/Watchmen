@@ -1,0 +1,262 @@
+  <!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+ <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+  
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!--======= PAGES INNER =========-->
+    <section class="chart-page padding-top-100 padding-bottom-100">
+      <div class="container"> 
+        
+        <!-- Payments Steps -->
+        <div class="shopping-cart"> 
+          
+          <!-- SHOPPING INFORMATION -->
+          <div class="cart-ship-info register">
+            <div class="row"> 
+              
+              <!-- ESTIMATE SHIPPING & TAX -->
+              <div class="col-sm-12">
+                <h6>REGISTER</h6>
+                  <label> {{#if phoneErr}}
+                      <p class="emailExstsErr text-danger">{{phoneErr}}</p>
+                      {{/if}}</label>
+                <form action="/usersignup" method="POST">
+                  <div class="row container">
+                    
+                    
+                    <!-- Name -->
+                    <div class="col-md-12">
+                      
+                      <label class="form-label"
+                      style="margin-bottom: 0px !important;"
+                      > *FIRST NAME </label>
+
+                        <input type="text" name="FirstName" value="" placeholder="" id="firstName"
+                        onkeyup="validateFirstName()" class="form-control" >
+                      
+                       <span id="firstName-error" class="text-danger my-auto"></span>
+                                             
+
+                       
+
+                     
+                    </div>
+                    <!-- LAST NAME -->
+                    <div class="col-md-12">
+                      
+                      <label class="form-label" style="margin-bottom: 0px !important;"> *LAST NAME</label>
+
+                        <input type="text" name="LastName" value="" placeholder="" id="lastName"
+                        onkeyup="validateLastName()">
+                        
+
+                        
+                        <span id="lastName-error" class="text-danger my-auto"></span>
+
+                        
+                      
+                    </div>
+                    
+                    <!-- EMAIL ADDRESS -->
+                    <div class="col-md-12">
+                        
+                      <label class="form-label" style="margin-bottom: 0px !important;"> *EMAIL ADDRESS </label>
+                        <input type="email" name="Email" value="" placeholder="" id="email"
+                        onkeyup="validateEmail()">
+                        
+                        <span id="email-error" class="text-danger my-auto"></span>
+
+                      
+                      
+                    </div>
+                    <!-- PHONE -->
+                    <div class="col-md-12">
+                      <label class="form-label" style="margin-bottom: 0px !important;"> *PHONE</label>
+                     
+                        <input type="text" name="PhoneNumber" value="" placeholder="" id="phoneNumber"
+                        onkeyup="validatePhoneNumber()">
+                        
+                        <span id="phoneNumber-error" class="text-danger my-auto"></span>
+
+                        
+                      
+
+                    </div>
+                    
+                    <!-- LAST NAME -->
+                    <div class="col-md-12">
+                      <label  style="margin-bottom: 0px !important;"> *PASSWORD </label>
+                        <input type="password" name="Password" value="" placeholder="" id="password"
+                        onkeyup="validatePassword()">
+                        
+                        <span id="password-error" class="text-danger my-auto"></span>
+
+                        
+                      
+
+                    </div>
+                    
+                    <!-- LAST NAME -->
+                    <div class="col-md-12">
+                      <label class="form-label" style="margin-bottom: 0px !important;"> * CONFIRM PASSWORD </label>
+                        <input type="password" value="" placeholder="" id="confirmPassword"
+                        onkeyup="validateConfirmPassword()">
+                        
+                        <span id="confirmPassword-error" class="text-danger my-auto"></span>
+
+                        
+                      
+
+                    </div>
+                    <!-- LAST NAME -->
+                    <div class="col-md-12">
+                      <label class="form-label" style="margin-bottom: 0px !important;">REFERRAL CODE </label>
+                        <input type="text" value="" placeholder="" id="confirmPassword" name="referralCode"
+                        >
+                    
+                    </div>
+                    
+                    <!-- PHONE -->
+                    <div class="col-md-12">
+                      
+                      <input type="submit" value="Sign up" class="btn "
+                  onclick="return validateForm()" style="width:25% ;">
+                <span id="submit-error" class="text-danger"></span>
+               
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <script>
+    var FirstNameError = document.getElementById('firstName-error');
+    var LastNameError = document.getElementById('lastName-error');
+    var emailError = document.getElementById('email-error');
+    var phoneNumberError = document.getElementById('phoneNumber-error')
+    var passwordError = document.getElementById('password-error')
+    var confirmPasswordError = document.getElementById('confirmPassword-error')
+    var submitError = document.getElementById('submit-error');
+    function validateFirstName() {
+      var FirstName = document.getElementById('firstName').value;
+
+      if (FirstName.length == 0) {
+        FirstNameError.innerHTML = "Name is required";
+        return false;
+      }
+      if (!FirstName.match(/^([A-Za-z])+$/)) {
+        FirstNameError.innerHTML = "Only letters";
+        return false;
+      }
+      if (FirstName.length < 3) {
+        FirstNameError.innerHTML = "Enter a valid name";
+        return false;
+      }
+      FirstNameError.innerHTML = ""
+      return true
+    }
+    function validateLastName() {
+      var LastName = document.getElementById('lastName').value;
+
+      if (LastName.length == 0) {
+        LastNameError.innerHTML = "Name is required";
+        return false;
+      }
+      if (!LastName.match(/^([A-Za-z])+$/)) {
+        LastNameError.innerHTML = "Only letters";
+        return false;
+      }
+      if (LastName.length < 3) {
+        LastNameError.innerHTML = "Enter a valid name";
+        return false;
+      }
+      LastNameError.innerHTML = ""
+      return true
+    }
+
+    function validateEmail() {
+      var email = document.getElementById('email').value;
+
+      if (email.length == 0) {
+        emailError.innerHTML = "Email is required";
+        return false;
+
+      }
+      if (!email.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)) {
+        emailError.innerHTML = "Email is invalid";
+        return false;
+      }
+      emailError.innerHTML = ""
+      return true
+    }
+    function validatePhoneNumber() {
+      var phone = document.getElementById('phoneNumber').value
+      if (phone.length < 10) {
+        phoneNumberError.innerHTML = "Phone number is required"
+        return false
+      }
+      if (phone.match(/^([A-Za-z])+$/)) {
+        LphoneNumberError.innerHTML = "Only numbers";
+        return false;
+      }
+      if (!phone.match(/^\d{10}$/)) {
+        phoneNumberError.innerHTML = "Phone number is invalid"
+        return false
+      }
+
+      phoneNumberError.innerHTML = ""
+      return true
+    }
+
+    function validatePassword() {
+      var password = document.getElementById('password').value;
+
+      if (password.length == 0) {
+        passwordError.innerHTML = "Password is required";
+        return false;
+
+      }
+      if (password.length < 3) {
+        passwordError.innerHTML = "Password must be atleast 3 characters ";
+        return false;
+      }
+
+      passwordError.innerHTML = ''
+      return true
+
+    }
+    function validateConfirmPassword() {
+      var password = document.getElementById('password').value
+      var confirmPassword = document.getElementById('confirmPassword').value
+      if (password != confirmPassword) {
+        confirmPasswordError.innerHTML = "Please enter same password"
+        return false
+      }
+      confirmPasswordError.innerHTML = ''
+      return true
+    }
+
+
+    function validateForm() {
+
+
+      if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePhoneNumber() || !validatePassword() || !validateConfirmPassword()) {
+        submitError.innerHTML = 'Please fill the form properly';
+        return false;
+      }
+    }
+  </script>
+    
+    
