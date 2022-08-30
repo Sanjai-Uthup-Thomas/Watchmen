@@ -1,13 +1,10 @@
 var express = require('express');
-const { routes, response } = require('../app');
 var router = express.Router();
 const userHelpers = require('../helpers/user-helpers')
 const productHelpers = require('../helpers/product-helpers')
 const categoryHelpers = require('../helpers/category-helpers');
 const addressHelpers = require('../helpers/address-helpers');
 const brandsHelpers = require('../helpers/brands-helpers');
-
-const { get } = require('./admin');
 const session = require('express-session');
 var paypal = require('paypal-rest-sdk')
 paypal.configure({
