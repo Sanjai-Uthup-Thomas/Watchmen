@@ -2,7 +2,6 @@ var db = require('../config/connection')
 const bcrypt = require('bcrypt')
 const collections = require('../config/collections')
 const ClientCapability = require('twilio/lib/jwt/ClientCapability')
-const { response } = require('../app')
 const ObjectId = require('mongodb').ObjectId
 require('dotenv').config()
 const client = require('twilio')(collections.TWILIO_ACCOUNT_SID , collections.TWILIO_TOKEN )
@@ -13,9 +12,9 @@ var instance = new Razorpay({
     key_secret: '5g7d01FnpDJJ84Ta20EM85aZ',
 });
 var paypal = require('paypal-rest-sdk')
-const { log } = require('console') 
-const { truncate } = require('fs/promises')
-const { resolve } = require('path')
+// const { log } = require('console') 
+// const { truncate } = require('fs/promises')
+// const { resolve } = require('path')
 paypal.configure({ 
     'mode': 'sandbox', //sandbox or live
     'client_id': 'AY_7IOxquRgS38IKa0C_Bjq4pQVp6kh-uEI4pRkrfLyp-nTby6AtL_HcS955qFbxzGsguHRE556HCyTW',
