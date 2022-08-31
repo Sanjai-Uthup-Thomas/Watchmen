@@ -62,7 +62,7 @@ router.get('/admindashboard',verifyAdminLogin, (req, res) => {
 })
 router.get('/SalesReport',verifyAdminLogin, async (req, res) => {
   let dailySales = await adminHelpers.dailySalesTotal()
-  res.render('admin/SalesReport', { user: false, admin: true, adminhead: true, dailySales })
+  res.render('admin/salesReport', { user: false, admin: true, adminhead: true, dailySales })
 
 })
 router.post("/dateSales", async (req, res) => {
@@ -227,7 +227,7 @@ router.post('/addbrands', (req, res) => {
 })
 router.get('/allbrands', verifyAdminLogin, (req, res) => {
   brandsHelpers.getAllBrands().then((brands) => {
-    res.render('admin/allbrands', { admin: true, adminhead: true, brands })
+    res.render('admin/allBrands', { admin: true, adminhead: true, brands })
   })
 })
 router.get('/deletebrands/:id', verifyAdminLogin, (req, res) => {
