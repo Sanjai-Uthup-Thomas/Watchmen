@@ -323,7 +323,7 @@ router.post('/verify-payment', (req, res) => {
   })
 })
 router.get('/orderplaced', verifyUserLogin, (req, res) => {
-  res.render('user/orderplaced', { users: true, userfoot: true, userhead: true })
+  res.render('user/orderPlaced', { users: true, userfoot: true, userhead: true })
 })
 router.get('/userOrders', verifyUserLogin, async (req, res) => {
   if (req.session.user) {
