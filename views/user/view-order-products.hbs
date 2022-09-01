@@ -11,7 +11,7 @@
   <div class="container">
       <!-- Popular Item Slide -->
             <div class="papular-block row"> 
-              {{#each products}}
+              {{#each products.orderItems}}
               <!-- Item -->
               <div class="col-md-4">
                 <div class="item"> 
@@ -20,7 +20,7 @@
                   
                   </div>
                   <!-- Item Name -->
-                  <div class="item-name"><a href="/productdetails/{{this._id}}">{{this.product.WatchName}}</a>
+                  <div class="item-name"><a href="/productdetails/{{this.item}}">{{this.product.WatchName}}</a>
                   </div>
                   <!-- Price --> 
                  

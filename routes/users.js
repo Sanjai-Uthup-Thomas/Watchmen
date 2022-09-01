@@ -323,7 +323,10 @@ router.post('/verify-payment', (req, res) => {
   })
 })
 router.get('/orderplaced', verifyUserLogin, (req, res) => {
+  let orderId=req.session.orderId
+  userHelpers.getOrderProducts(orderId).then(() => {
   res.render('user/orderPlaced', { users: true, userfoot: true, userhead: true })
+  })
 })
 router.get('/userOrders', verifyUserLogin, async (req, res) => {
   if (req.session.user) {
@@ -482,7 +485,8 @@ router.get('/brandWise/:id', verifyUserLogin3, (req, res) => {
 })
 router.get('/viewOrder/:id', verifyUserLogin,(req, res) => {
 
-  userHelpers.getOrderProducts(req.params.id).then((products) => {
+  userHelpers.getOrderProduct(req.params.id).then((products) => {
+    console.log(products);
     res.render('user/view-order-products', { loggedUser, users: true, userfoot: true, userhead: true, products, cartCount })
   }).catch((err) => {
     res.render('error')

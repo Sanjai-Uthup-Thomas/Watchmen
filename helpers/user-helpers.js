@@ -13,6 +13,7 @@ var instance = new Razorpay({
     key_secret: '5g7d01FnpDJJ84Ta20EM85aZ',
 });
 var paypal = require('paypal-rest-sdk')
+const { log } = require('console')
 // const { log } = require('console') 
 // const { truncate } = require('fs/promises')
 // const { resolve } = require('path')
@@ -515,7 +516,7 @@ module.exports = {
                             date: {
                                 $dateToString: {
                                     date: "$date",
-                                    format: "%d-%m-%Y %H:%M:%S",
+                                    format:"%Y-%m-%d %H:%M:%S"
                                 }
                             },
                             grandTotal: 1,
@@ -794,8 +795,10 @@ module.exports = {
 
                 let Product = await db.get().collection(collections.ORDERPRODUCT_COLLECTIONS).findOne({ orderItems: { $elemMatch: { _id: ObjectId(orderId) } } })
                 if (Product) {
+                    console.log("order console if");
                     resolve(orderItems)
                 } else {
+                    console.log("order console else");
                     db.get().collection(collections.ORDERPRODUCT_COLLECTIONS).insert({ orderItems }).then(() => {
                         resolve(orderItems)
                     })
