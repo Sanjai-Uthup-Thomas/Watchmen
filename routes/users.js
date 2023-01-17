@@ -205,6 +205,9 @@ router.get('/checkout', verifyUserLogin, async (req, res, next) => {
     console.log(loggedUser._id);
     console.log(req.session.userDetails._id);
     cartCount = await userHelpers.getCartCount(loggedUser._id)
+    if(cartCount <= 0){
+      res.redirect('/')
+    }
     let total = await userHelpers.getTotalAmount(req.session.userDetails._id)
     let products = await userHelpers.getCartProducts(req.session.userDetails._id)
     let grandTotal = await userHelpers.getGrandTotalAmount(req.session.userDetails._id)
